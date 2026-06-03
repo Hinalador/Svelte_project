@@ -1,15 +1,20 @@
 <script>
-  let habitosCompletados = 0;
+  let completados = 0;
+  let metaTotal = 5;
 
-  function incrementar() {
-    habitosCompletados += 1; // La reasignación (=) le avisa a Svelte que debe actualizar el HTML
-  }
+  // Svelte recalcula esto automáticamente cada vez que 'completados' cambie
+  $: porcentaje = (completados / metaTotal) * 100;
+  $: felicitacion =
+    completados >= metaTotal ? "¡Meta del día alcanzada! 🎉" : "";
 </script>
 
 <main>
-  <h2>Progreso de hoy</h2>
-  <p>Has completado {habitosCompletados} hábitos.</p>
-  <button on:click={incrementar}>Marcar hábito como hecho</button>
+  <p>Progreso: {completados} de {metaTotal} ({porcentaje}%)</p>
+  <button on:click={() => completados++}>+</button>
+
+  {#if felicitacion}
+    <p>{felicitacion}</p>
+  {/if}
 </main>
 
 <style>
