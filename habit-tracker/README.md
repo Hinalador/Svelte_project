@@ -1,47 +1,101 @@
-# Svelte + Vite
+# 📋 Habit Tracker
 
-This template should help get you started developing with Svelte in Vite.
+Un rastreador de hábitos moderno y responsivo construido con **Svelte** y **Vite**. Ayúdate a construir mejores hábitos al día mediante un seguimiento intuitivo de tu progreso.
 
-## Recommended IDE Setup
+## ✨ Características
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+- 📊 **Seguimiento de hábitos** - Gestiona múltiples hábitos con facilidad
+- 📈 **Indicador de progreso** - Visualiza tu avance diario en porcentaje
+- ✅ **Marcar completados** - Marca hábitos completados con un solo clic
+- 🔄 **Reiniciar día** - Reestablece tu progreso para empezar de nuevo
+- ⚡ **Rápido y responsivo** - Interfaz fluida con HMR en tiempo real
+- 📱 **Interfaz limpia** - Diseño intuitivo y fácil de usar
 
-## Need an official Svelte framework?
+## 🚀 Tecnologías
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+- **Svelte** - Framework reactivo y ligero
+- **Vite** - Empaquetador ultrarrápido
+- **JavaScript** - Lógica interactiva
+- **CSS3** - Estilos modernos y responsive
 
-## Technical considerations
+## 📦 Instalación
 
-**Why use this over SvelteKit?**
+### Requisitos
+- Node.js (v16 o superior)
+- npm o yarn
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+### Pasos
 
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
-
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
-
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
-
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `checkJs` in the JS template?**
-
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr#preservation-of-local-state).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
+1. **Clona o descarga el proyecto**
+```bash
+git clone <tu-repositorio>
+cd habit-tracker
 ```
+
+2. **Instala las dependencias**
+```bash
+npm install
+```
+
+3. **Inicia el servidor de desarrollo**
+```bash
+npm run dev
+```
+
+4. **Abre el navegador**
+```
+http://localhost:5173/
+```
+
+## 📁 Estructura del Proyecto
+
+```
+habit-tracker/
+├── src/
+│   ├── App.svelte          # Componente principal
+│   ├── app.css             # Estilos globales
+│   ├── main.js             # Punto de entrada
+│   ├── assets/             # Imágenes y recursos
+│   └── lib/
+│       └── Counter.svelte   # Componentes reutilizables
+├── public/                 # Archivos estáticos
+├── index.html              # HTML base
+├── package.json            # Dependencias del proyecto
+├── vite.config.js          # Configuración de Vite
+└── jsconfig.json           # Configuración de JavaScript
+```
+
+## 🎮 Uso
+
+1. **Ver tus hábitos** - La pantalla muestra tu lista de hábitos con estado actual
+2. **Marcar completado** - Haz clic en "Simular completar un hábito" para marcar progreso
+3. **Ver progreso** - Observa el porcentaje de hábitos completados
+4. **Reiniciar** - Usa "Reiniciar día" para comenzar de nuevo
+
+## 🛠️ Scripts disponibles
+
+```bash
+npm run dev      # Inicia el servidor de desarrollo
+npm run build    # Construye para producción
+npm run preview  # Previsualiza la build de producción
+```
+
+## 🎯 Mejoras futuras
+
+- 💾 Persistencia de datos con LocalStorage
+- 📅 Historial de días anteriores
+- 🎨 Modo oscuro
+- 🏆 Estadísticas detalladas
+- 📤 Exportar datos
+
+## 👨‍💻 Autor
+
+**Hinalador** - [Jacevedosalazar@gmail.com](mailto:Jacevedosalazar@gmail.com)
+
+## 📄 Licencia
+
+Este proyecto es de código abierto y está disponible bajo la licencia MIT.
+
+---
+
+⭐ Si te gusta este proyecto, ¡no olvides darle una estrella en GitHub!
