@@ -5,9 +5,10 @@ Un rastreador de hábitos moderno y responsivo construido con **Svelte** y **Vit
 ## ✨ Características
 
 - 📊 **Seguimiento de hábitos** - Gestiona múltiples hábitos con facilidad
-- 📈 **Indicador de progreso** - Visualiza tu avance diario en porcentaje
-- ✅ **Marcar completados** - Marca hábitos completados con un solo clic
-- 🔄 **Reiniciar día** - Reestablece tu progreso para empezar de nuevo
+- � **Persistencia local** - Tus hábitos se guardan automáticamente en el navegador
+- 🧠 **Estado editable** - Marca hábitos como completados o pendientes con un clic
+- ✍️ **Agregar nuevos hábitos** - Añade hábitos personalizados al instante
+- ✅ **Botones de acción rápida** - Completar todos o reiniciar el día con un solo toque
 - ⚡ **Rápido y responsivo** - Interfaz fluida con HMR en tiempo real
 - 📱 **Interfaz limpia** - Diseño intuitivo y fácil de usar
 
