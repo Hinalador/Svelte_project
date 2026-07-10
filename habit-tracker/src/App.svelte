@@ -45,12 +45,14 @@
     nuevoHabito = ''
   }
 
+  /** @param {number} id */
   function toggleHabito(id) {
     habitos = habitos.map((h) =>
       h.id === id ? { ...h, completado: !h.completado } : h
     )
   }
 
+  /** @param {number} id */
   function eliminarHabito(id) {
     habitos = habitos.filter((h) => h.id !== id)
   }
