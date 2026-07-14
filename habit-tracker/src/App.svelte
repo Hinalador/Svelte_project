@@ -99,7 +99,7 @@
     {#if habitos.length === 0}
       <li class="vacío">Aún no tienes hábitos. Agrega uno para comenzar.</li>
     {:else}
-      {#each habitos as habito}
+      {#each habitos as habito (habito.id)}
         <li class:completado={habito.completado}>
           <button
             type="button"
