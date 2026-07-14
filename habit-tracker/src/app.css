@@ -215,13 +215,13 @@ input {
 }
 
 .acciones {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
+  margin-top: 1rem;
 }
 
 .acciones button {
-  flex: 1 1 220px;
   padding: 0.95rem 1.4rem;
   border-radius: 18px;
   border: none;
@@ -248,6 +248,58 @@ input {
 
 .btn-secundario:hover:not(:disabled) {
   background-color: #cbd5e1;
+}
+
+.summary-card {
+  padding: 1.4rem 1.5rem;
+  border-radius: 26px;
+  background: #f8fafc;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.06);
+}
+
+.summary-card .dashboard {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.summary-card .resumen {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.summary-card .resumen div {
+  background: #ffffff;
+  padding: 0.9rem 1rem;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.06);
+}
+
+.summary-card .stat-label {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.summary-card .barra-progreso-wrap {
+  height: 1rem;
+  width: 100%;
+  border-radius: 999px;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+
+.summary-card .barra-progreso {
+  height: 100%;
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  transition: width 0.25s ease;
+}
+
+.summary-card .alerta {
+  margin-top: 1rem;
 }
 
 @media (max-width: 640px) {

@@ -2,6 +2,10 @@ import { derived, writable } from 'svelte/store'
 
 const STORAGE_KEY = 'habit-tracker-svelte-v5'
 
+/**
+ * @typedef {{ id: number; nombre: string; completado: boolean }} Habit
+ */
+
 const initialHabitos = [
   { id: 1, nombre: 'Correr 5k', completado: false },
   { id: 2, nombre: 'Leer 20 páginas', completado: false },
@@ -9,9 +13,9 @@ const initialHabitos = [
 ]
 
 function createHabitosStore() {
-  const { subscribe, set, update } = writable(initialHabitos, (set) => {
-    if (typeof window === 'undefined') return
+  const { subscribe, set, update } = writable(initialHabitos)
 
+  if (typeof window !== 'undefined') {
     const almacenado = window.localStorage.getItem(STORAGE_KEY)
 
     if (almacenado) {
@@ -22,37 +26,33 @@ function createHabitosStore() {
       }
     }
 
-    const unsubscribe = subscribe((current) => {
+    subscribe((current) => {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(current))
     })
-
-    return unsubscribe
-  })
+  }
 
   return {
     subscribe,
-    addHabit(nombre) {
+    /** @param {string} nombre */
+    addHabit: (nombre) =>
       update((habitos) => {
         const nextId = Math.max(...habitos.map((h) => h.id), 0) + 1
         return [...habitos, { id: nextId, nombre, completado: false }]
-      })
-    },
-    toggleHabit(id) {
+      }),
+    /** @param {number} id */
+    toggleHabit: (id) =>
       update((habitos) =>
         habitos.map((h) =>
           h.id === id ? { ...h, completado: !h.completado } : h
         )
-      )
-    },
-    removeHabit(id) {
-      update((habitos) => habitos.filter((h) => h.id !== id))
-    },
-    completeAll() {
-      update((habitos) => habitos.map((h) => ({ ...h, completado: true })))
-    },
-    resetAll() {
-      update((habitos) => habitos.map((h) => ({ ...h, completado: false })))
-    },
+      ),
+    /** @param {number} id */
+    removeHabit: (id) =>
+      update((habitos) => habitos.filter((h) => h.id !== id)),
+    completeAll: () =>
+      update((habitos) => habitos.map((h) => ({ ...h, completado: true }))),
+    resetAll: () =>
+      update((habitos) => habitos.map((h) => ({ ...h, completado: false }))),
   }
 }
 

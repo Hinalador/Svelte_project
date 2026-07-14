@@ -22,6 +22,8 @@
     border-radius: 24px;
     box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
     color: #111827;
+    display: grid;
+    gap: 1.5rem;
   }
 
   h2 {
