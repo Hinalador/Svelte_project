@@ -1,5 +1,13 @@
-<script>
+﻿<script>
   import { onMount } from 'svelte'
+  import HabitForm from './components/HabitForm.svelte'
+  import HabitList from './components/HabitList.svelte'
+
+/**
+ * @typedef {{ id: number; nombre: string; completado: boolean }} Habit
+ * @typedef {{ detail: { nombre: string } }} AddHabitEvent
+ * @typedef {{ detail: { id: number } }} HabitActionEvent
+ */
 
   const STORAGE_KEY = 'habit-tracker-svelte-v5'
 
@@ -34,8 +42,11 @@
   $: completados = habitos.filter((h) => h.completado).length
   $: porcentaje = total > 0 ? (completados / total) * 100 : 0
 
-  function agregarHabito() {
-    const nombre = nuevoHabito.trim()
+  /**
+   * @param {AddHabitEvent} event
+   */
+  function handleAdd(event) {
+    const nombre = event.detail.nombre.trim()
     if (!nombre) return
 
     habitos = [
@@ -45,15 +56,21 @@
     nuevoHabito = ''
   }
 
-  /** @param {number} id */
-  function toggleHabito(id) {
+  /**
+   * @param {HabitActionEvent} event
+   */
+  function handleToggle(event) {
+    const id = event.detail.id
     habitos = habitos.map((h) =>
       h.id === id ? { ...h, completado: !h.completado } : h
     )
   }
 
-  /** @param {number} id */
-  function eliminarHabito(id) {
+  /**
+   * @param {HabitActionEvent} event
+   */
+  function handleDelete(event) {
+    const id = event.detail.id
     habitos = habitos.filter((h) => h.id !== id)
   }
 
@@ -80,49 +97,9 @@
     </div>
   </section>
 
-  <form class="formulario-habito" on:submit|preventDefault={agregarHabito}>
-    <label>
-      Agregar hábito nuevo
-      <input
-        type="text"
-        bind:value={nuevoHabito}
-        placeholder="Ej. Practicar gratitud"
-        aria-label="Nombre del nuevo hábito"
-      />
-    </label>
-    <button type="submit" disabled={nuevoHabito.trim() === ''}>
-      Añadir hábito
-    </button>
-  </form>
+  <HabitForm bind:nuevoHabito on:add={handleAdd} />
 
-  <ul class="lista-habitos">
-    {#if habitos.length === 0}
-      <li class="vacío">Aún no tienes hábitos. Agrega uno para comenzar.</li>
-    {:else}
-      {#each habitos as habito (habito.id)}
-        <li class:completado={habito.completado}>
-          <button
-            type="button"
-            class="habito-boton"
-            on:click={() => toggleHabito(habito.id)}
-          >
-            <span class="nombre-habito">{habito.nombre}</span>
-            <span class="estado">
-              {habito.completado ? '✅ Completado' : '⏳ Pendiente'}
-            </span>
-          </button>
-          <button
-            type="button"
-            class="btn-eliminar"
-            aria-label="Eliminar hábito {habito.nombre}"
-            on:click={() => eliminarHabito(habito.id)}
-          >
-            ✕
-          </button>
-        </li>
-      {/each}
-    {/if}
-  </ul>
+  <HabitList {habitos} on:toggle={handleToggle} on:remove={handleDelete} />
 
   {#if porcentaje === 0}
     <div class="alerta alerta-inicio">
@@ -199,153 +176,6 @@
     transition: width 0.25s ease;
   }
 
-  .formulario-habito {
-    display: grid;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .formulario-habito label {
-    display: grid;
-    gap: 0.5rem;
-    font-weight: 600;
-    color: #111827;
-  }
-
-  .formulario-habito input {
-    width: 100%;
-    padding: 0.9rem 1rem;
-    border-radius: 12px;
-    border: 1px solid #d1d5db;
-    background: #fff;
-    font-size: 1rem;
-    color: #111827;
-    box-sizing: border-box;
-  }
-
-  .formulario-habito input::placeholder {
-    color: #6b7280;
-  }
-
-  .formulario-habito button {
-    width: max-content;
-    padding: 0.9rem 1.25rem;
-    border-radius: 12px;
-    border: none;
-    background-color: #0f766e;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-
-  .formulario-habito button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  .formulario-habito button:hover:not(:disabled) {
-    background-color: #115e59;
-  }
-
-  .lista-habitos {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.5rem;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-  }
-
-  .lista-habitos li {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0.75rem;
-    align-items: center;
-    padding: 1rem;
-    background: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
-  }
-
-  .lista-habitos li:last-child {
-    border-bottom: none;
-  }
-
-  .lista-habitos li.completado {
-    color: #166534;
-    background: #f0fdf4;
-  }
-
-  .habito-boton {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    padding: 0;
-    border: none;
-    background: transparent;
-    text-align: left;
-    cursor: pointer;
-    font: inherit;
-    color: inherit;
-  }
-
-  .nombre-habito {
-    font-weight: 600;
-  }
-
-  .estado {
-    font-size: 0.95rem;
-    opacity: 0.85;
-  }
-
-  .btn-eliminar {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 999px;
-    border: none;
-    background: #f8fafc;
-    color: #9ca3af;
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
-  }
-
-  .btn-eliminar:hover {
-    background: #fee2e2;
-    color: #b91c1c;
-  }
-
-  .vacío {
-    padding: 1rem;
-    text-align: center;
-    color: #6b7280;
-  }
-
-  .alerta {
-    padding: 1rem;
-    border-radius: 12px;
-    margin: 1.5rem 0;
-    font-weight: 500;
-  }
-
-  .alerta-inicio {
-    background-color: #dbeafe;
-    color: #1e3a8a;
-    border: 1px solid #bfdbfe;
-  }
-
-  .alerta-progreso {
-    background-color: #fff7ed;
-    color: #c2410c;
-    border: 1px solid #ffedd5;
-  }
-
-  .alerta-exito {
-    background-color: #ecfdf5;
-    color: #166534;
-    border: 1px solid #d1fae5;
-  }
-
   .acciones {
     display: flex;
     flex-wrap: wrap;
@@ -381,10 +211,6 @@
   }
 
   @media (max-width: 640px) {
-    .lista-habitos li {
-      grid-template-columns: 1fr;
-    }
-
     .acciones {
       flex-direction: column;
     }

@@ -31,6 +31,10 @@ Svelte_project/
 │   │   ├── App.svelte
 │   │   ├── app.css
 │   │   ├── main.js
+│   │   ├── components/
+│   │   │   ├── HabitForm.svelte
+│   │   │   ├── HabitList.svelte
+│   │   │   └── HabitItem.svelte
 │   │   └── ...
 │   ├── public/
 │   ├── package.json

@@ -53,17 +53,19 @@ http://localhost:5173/
 ```
 habit-tracker/
 ├── src/
-│   ├── App.svelte          # Componente principal
-│   ├── app.css             # Estilos globales
-│   ├── main.js             # Punto de entrada
-│   ├── assets/             # Imágenes y recursos
-│   └── lib/
-│       └── Counter.svelte   # Componentes reutilizables
-├── public/                 # Archivos estáticos
-├── index.html              # HTML base
-├── package.json            # Dependencias del proyecto
-├── vite.config.js          # Configuración de Vite
-└── jsconfig.json           # Configuración de JavaScript
+│   ├── App.svelte              # Componente principal
+│   ├── app.css                 # Estilos globales
+│   ├── main.js                 # Punto de entrada
+│   ├── assets/                 # Imágenes y recursos
+│   └── components/             # Componentes de la interfaz
+│       ├── HabitForm.svelte
+│       ├── HabitList.svelte
+│       └── HabitItem.svelte
+├── public/                     # Archivos estáticos
+├── index.html                  # HTML base
+├── package.json                # Dependencias del proyecto
+├── vite.config.js              # Configuración de Vite
+└── jsconfig.json               # Configuración de JavaScript
 ```
 
 ## 🎮 Uso
