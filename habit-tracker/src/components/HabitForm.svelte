@@ -1,16 +1,15 @@
 <script>
-  import { createEventDispatcher } from 'svelte'
+  import { addHabit } from '../stores/habitosStore.js'
 
-  export let nuevoHabito = ''
-
-  const dispatch = createEventDispatcher()
+  let nuevoHabito = ''
 
   function submitForm(event) {
     event.preventDefault()
     const nombre = nuevoHabito.trim()
     if (!nombre) return
 
-    dispatch('add', { nombre })
+    addHabit(nombre)
+    nuevoHabito = ''
   }
 </script>
 

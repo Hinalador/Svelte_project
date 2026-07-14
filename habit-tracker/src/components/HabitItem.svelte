@@ -1,20 +1,19 @@
 <script>
-  import { createEventDispatcher } from 'svelte'
+  import { fade } from 'svelte/transition'
+  import { removeHabit, toggleHabit } from '../stores/habitosStore.js'
 
   export let habito
 
-  const dispatch = createEventDispatcher()
-
   function toggle() {
-    dispatch('toggle', { id: habito.id })
+    toggleHabit(habito.id)
   }
 
   function eliminar() {
-    dispatch('remove', { id: habito.id })
+    removeHabit(habito.id)
   }
 </script>
 
-<li class:completado={habito.completado}>
+<li class:completado={habito.completado} transition:fade>
   <button
     type="button"
     class="habito-boton"
