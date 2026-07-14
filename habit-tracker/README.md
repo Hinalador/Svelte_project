@@ -6,6 +6,7 @@ Un rastreador de hábitos moderno y responsivo construido con **Svelte 5** y **V
 
 - 📊 **Seguimiento de hábitos** - Gestiona múltiples hábitos con facilidad
 - 💾 **Persistencia local** - Tus hábitos se guardan automáticamente en el navegador
+- 📈 **Resumen diario** - Tarjeta visual con estado, porcentaje y métricas clave
 - 🧠 **Estado editable** - Marca hábitos como completados o pendientes con un clic
 - ✍️ **Agregar nuevos hábitos** - Añade hábitos personalizados al instante
 - ✅ **Botones de acción rápida** - Completar todos o reiniciar el día con un solo toque
@@ -30,8 +31,8 @@ Un rastreador de hábitos moderno y responsivo construido con **Svelte 5** y **V
 
 1. **Clona o descarga el proyecto**
 ```bash
-git clone <tu-repositorio>
-cd habit-tracker
+git clone https://github.com/Hinalador/Svelte_project.git
+cd Svelte_project/habit-tracker
 ```
 
 2. **Instala las dependencias**
@@ -61,7 +62,8 @@ habit-tracker/
 │   └── components/             # Componentes de la interfaz
 │       ├── HabitForm.svelte
 │       ├── HabitList.svelte
-│       └── HabitItem.svelte
+│       ├── HabitItem.svelte
+│       └── Summary.svelte
 ├── public/                     # Archivos estáticos
 ├── index.html                  # HTML base
 ├── package.json                # Dependencias del proyecto
@@ -73,8 +75,9 @@ habit-tracker/
 
 1. **Ver tus hábitos** - La pantalla muestra tu lista de hábitos con estado actual
 2. **Marcar completado** - Haz clic en el hábito para alternar su estado entre completado y pendiente
-3. **Ver progreso** - Observa el porcentaje de hábitos completados y el resumen diario
-4. **Reiniciar** - Usa "Reiniciar día" para comenzar de nuevo
+3. **Ver progreso** - Observa el porcentaje de hábitos completados y el resumen diario en la tarjeta
+4. **Usar acciones rápidas** - Completar todos o reiniciar el día con un solo botón
+5. **Seguir el progreso** - Usa la tarjeta de resumen para ver métricas clave al instante
 
 ## 🛠️ Scripts disponibles
 
@@ -86,8 +89,7 @@ npm run preview  # Previsualiza la build de producción
 
 ## 🎯 Mejoras futuras
 
-- 💾 Persistencia de datos con LocalStorage
-- 📅 Historial de días anteriores
+-  Historial de días anteriores
 - 🎨 Modo oscuro
 - 🏆 Estadísticas detalladas
 - 📤 Exportar datos

@@ -9,15 +9,17 @@ Este repositorio contiene un mini proyecto llamado `habit-tracker`, donde puedes
 - Añadir hábitos diarios personalizados.
 - Marcar hábitos como completados o pendientes.
 - Ver el progreso en porcentaje y estadísticas rápidas.
+- Consultar el resumen diario en una tarjeta visual.
 - Reiniciar el día para empezar de nuevo.
 - Guardar los hábitos automáticamente en el navegador con LocalStorage.
 
-La interfaz se ha actualizado para tener mejor contraste, fondo claro y campos de entrada legibles. Recientemente se refinó el diseño para una apariencia más limpia y moderna.
+La interfaz se ha actualizado para tener mejor contraste, fondo claro y campos de entrada legibles. Recientemente se refinó el diseño para una apariencia más limpia y moderna, con un panel de resumen UI más claro y una experiencia responsive mejorada.
 
 ## Características principales
 
 - ✅ Gestión de hábitos con opciones de completar y eliminar.
 - 💾 Persistencia local para mantener los hábitos entre sesiones.
+- 📈 Resumen diario visual con progreso y métricas.
 - 🎨 UI mejorada con contraste, bordes suaves y enfoque accesible.
 - 📱 Diseño responsive para uso en escritorio y móvil.
 - ⚡ Construido con la versión moderna de Svelte y Vite.
@@ -34,7 +36,8 @@ Svelte_project/
 │   │   ├── components/
 │   │   │   ├── HabitForm.svelte
 │   │   │   ├── HabitList.svelte
-│   │   │   └── HabitItem.svelte
+│   │   │   ├── HabitItem.svelte
+│   │   │   └── Summary.svelte
 │   │   └── ...
 │   ├── public/
 │   ├── package.json
@@ -84,6 +87,7 @@ Svelte_project/
 - Escribe un nuevo hábito en el campo de entrada.
 - Presiona `Añadir hábito` para agregarlo a la lista.
 - Haz clic sobre un hábito para marcarlo como completado o pendiente.
+- Observa el resumen diario y el porcentaje de hábitos completados.
 - Usa `Marcar todos como completados` para finalizar la lista.
 - Usa `Reiniciar día` para limpiar el estado completado.
 
