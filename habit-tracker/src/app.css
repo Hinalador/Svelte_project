@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #111827;
-  background-color: #f8fafc;
+  color: #0f172a;
+  background-color: #e0f2fe;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,77 +17,251 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
+  min-height: 100%;
+}
+
+body {
   display: flex;
-  place-items: center;
+  justify-content: center;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #e5e7eb;
+  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 28%),
+    linear-gradient(180deg, #eff6ff 0%, #e0f2fe 100%);
   color: inherit;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  color: inherit;
+  text-decoration: none;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-.card {
-  padding: 2em;
+button,
+input {
+  font: inherit;
 }
 
 #app {
-  max-width: 1280px;
+  width: min(100%, 860px);
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 2rem 1rem;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.formulario-habito {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1.4rem 1.5rem;
+  border-radius: 26px;
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+}
+
+.formulario-habito label {
+  display: grid;
+  gap: 0.8rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.formulario-habito input {
+  width: 100%;
+  padding: 1rem 1.1rem;
+  border-radius: 16px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formulario-habito input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+}
+
+.formulario-habito input::placeholder {
+  color: #94a3b8;
+}
+
+.formulario-habito button {
+  width: fit-content;
+  padding: 0.95rem 1.5rem;
+  border-radius: 16px;
+  border: none;
+  background-color: #0f766e;
+  color: #ffffff;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.formulario-habito button:hover:not(:disabled) {
+  background-color: #115e59;
+  transform: translateY(-1px);
+}
+
+.formulario-habito button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.lista-habitos {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.lista-habitos li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 1rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.lista-habitos li.completado {
+  background: #ecfdf5;
+  color: #166534;
+}
+
+.habito-boton {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 1rem;
+  border: none;
+  border-radius: 18px;
+  background: #f8fafc;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.habito-boton:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+.nombre-habito {
+  font-weight: 700;
+}
+
+.estado {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.btn-eliminar {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 999px;
+  border: none;
+  background: #f8fafc;
+  color: #334155;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-eliminar:hover {
+  background: #fee2e2;
+  transform: translateY(-1px);
+}
+
+.vacío {
+  padding: 1rem;
+  text-align: center;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+}
+
+.alerta {
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  margin: 1.5rem 0;
+  font-weight: 600;
+}
+
+.alerta-inicio {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.alerta-progreso {
+  background-color: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #fed7aa;
+}
+
+.alerta-exito {
+  background-color: #ecfdf5;
+  color: #166534;
+  border: 1px solid #d1fae5;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.acciones button {
+  flex: 1 1 220px;
+  padding: 0.95rem 1.4rem;
+  border-radius: 18px;
+  border: none;
+  background-color: #0f766e;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.acciones button:hover:not(:disabled) {
+  background-color: #115e59;
+  transform: translateY(-1px);
+}
+
+.acciones button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-secundario {
+  background-color: #e2e8eb;
+  color: #0f172a;
+}
+
+.btn-secundario:hover:not(:disabled) {
+  background-color: #cbd5e1;
+}
+
+@media (max-width: 640px) {
+  body {
+    align-items: flex-start;
+    padding: 1rem;
   }
-  a:hover {
-    color: #747bff;
+
+  #app {
+    width: 100%;
+    padding: 1rem;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .acciones {
+    flex-direction: column;
   }
 }

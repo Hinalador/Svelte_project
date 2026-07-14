@@ -12,7 +12,7 @@ Este repositorio contiene un mini proyecto llamado `habit-tracker`, donde puedes
 - Reiniciar el día para empezar de nuevo.
 - Guardar los hábitos automáticamente en el navegador con LocalStorage.
 
-La interfaz se ha actualizado para tener mejor contraste, fondo claro y campos de entrada legibles.
+La interfaz se ha actualizado para tener mejor contraste, fondo claro y campos de entrada legibles. Recientemente se refinó el diseño para una apariencia más limpia y moderna.
 
 ## Características principales
 

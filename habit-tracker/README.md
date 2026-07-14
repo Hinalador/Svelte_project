@@ -10,6 +10,7 @@ Un rastreador de hábitos moderno y responsivo construido con **Svelte 5** y **V
 - ✍️ **Agregar nuevos hábitos** - Añade hábitos personalizados al instante
 - ✅ **Botones de acción rápida** - Completar todos o reiniciar el día con un solo toque
 - 🎨 **Diseño mejorado** - Contraste y legibilidad optimizados para el formulario y la tarjeta principal
+- 🖌️ **UI refinada** - Estilo más limpio con tarjetas suaves y mejor jerarquía visual
 - ⚡ **Rápido y responsivo** - Interfaz fluida con HMR en tiempo real
 
 ## 🚀 Tecnologías
