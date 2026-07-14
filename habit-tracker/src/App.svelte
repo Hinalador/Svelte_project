@@ -155,6 +155,10 @@
     padding: 1.5rem;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.5;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+    color: #111827;
   }
 
   h2 {
@@ -215,6 +219,12 @@
     border: 1px solid #d1d5db;
     background: #fff;
     font-size: 1rem;
+    color: #111827;
+    box-sizing: border-box;
+  }
+
+  .formulario-habito input::placeholder {
+    color: #6b7280;
   }
 
   .formulario-habito button {

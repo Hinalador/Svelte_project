@@ -1,20 +1,20 @@
 # 📋 Habit Tracker
 
-Un rastreador de hábitos moderno y responsivo construido con **Svelte** y **Vite**. Ayúdate a construir mejores hábitos al día mediante un seguimiento intuitivo de tu progreso.
+Un rastreador de hábitos moderno y responsivo construido con **Svelte 5** y **Vite**. Ayuda a construir mejores rutinas diarias con una interfaz clara, agradable y accesible.
 
 ## ✨ Características
 
 - 📊 **Seguimiento de hábitos** - Gestiona múltiples hábitos con facilidad
-- � **Persistencia local** - Tus hábitos se guardan automáticamente en el navegador
+- 💾 **Persistencia local** - Tus hábitos se guardan automáticamente en el navegador
 - 🧠 **Estado editable** - Marca hábitos como completados o pendientes con un clic
 - ✍️ **Agregar nuevos hábitos** - Añade hábitos personalizados al instante
 - ✅ **Botones de acción rápida** - Completar todos o reiniciar el día con un solo toque
+- 🎨 **Diseño mejorado** - Contraste y legibilidad optimizados para el formulario y la tarjeta principal
 - ⚡ **Rápido y responsivo** - Interfaz fluida con HMR en tiempo real
-- 📱 **Interfaz limpia** - Diseño intuitivo y fácil de usar
 
 ## 🚀 Tecnologías
 
-- **Svelte** - Framework reactivo y ligero
+- **Svelte 5** - Framework reactivo y ligero
 - **Vite** - Empaquetador ultrarrápido
 - **JavaScript** - Lógica interactiva
 - **CSS3** - Estilos modernos y responsive
@@ -69,8 +69,8 @@ habit-tracker/
 ## 🎮 Uso
 
 1. **Ver tus hábitos** - La pantalla muestra tu lista de hábitos con estado actual
-2. **Marcar completado** - Haz clic en "Simular completar un hábito" para marcar progreso
-3. **Ver progreso** - Observa el porcentaje de hábitos completados
+2. **Marcar completado** - Haz clic en el hábito para alternar su estado entre completado y pendiente
+3. **Ver progreso** - Observa el porcentaje de hábitos completados y el resumen diario
 4. **Reiniciar** - Usa "Reiniciar día" para comenzar de nuevo
 
 ## 🛠️ Scripts disponibles
